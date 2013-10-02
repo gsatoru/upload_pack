@@ -17,16 +17,16 @@ class UploadHelper extends AppHelper {
     public function image($data, $path, $options = array(), $htmlOptions = array())
     {
         $options += array('urlize' => false);
-        return $this->output($this->Html->image($this->url($data, $path, $options), $htmlOptions));
+        return $this->output($this->Html->image($this->url2($data, $path, $options), $htmlOptions));
     }
 
     public function link($title, $data, $field, $urlOptions = array(), $htmlOptions = array())
     {
         $urlOptions += array('style' => 'original', 'urlize' => true);
-        return $this->Html->link($title, $this->url($data, $field, $urlOptions), $htmlOptions);
+        return $this->Html->link($title, $this->url2($data, $field, $urlOptions), $htmlOptions);
     }
 
-    public function url($data, $field, $options = array())
+    public function url2($data, $field, $options = array())
     {
         $options += array('style' => 'original', 'urlize' => true);
         list($model, $field) = explode('.', $field);
